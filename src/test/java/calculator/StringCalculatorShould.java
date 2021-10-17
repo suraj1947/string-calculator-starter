@@ -55,4 +55,9 @@ class StringCalculatorShould {
     void string_ignore_numbers_greater_than_1000() throws NegativeValueException {
     	assertEquals(30, stringCalculator.add("10;20;1001"));
     }
+    
+    @Test
+    void string_multiple_delimiters() throws NegativeValueException {
+    	assertEquals(30, stringCalculator.add("[***]\\n1***2***3”"));
+    }
 }
