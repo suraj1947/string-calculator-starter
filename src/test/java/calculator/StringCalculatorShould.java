@@ -40,4 +40,9 @@ class StringCalculatorShould {
     void string_with_negative_number() {
     	assertThrows(Exception.class,()->stringCalculator.add("//;\n1;-2"));
     }
+    
+    @Test
+    void string_with_multiple_negative_number() {
+    	assertThrows(Exception.class,()->stringCalculator.add("//;\n-1;-2;-3"));
+    }
 }

@@ -10,13 +10,20 @@ class StringCalculator {
 	
 	private static int sum(String input) throws NegativeValueException {
 		String[] s1 = stringToInt(input); 
+		String negativeValues = null;
 		int result = 0;
+		boolean flag = false;
 		for (String string : s1) {
 			int temp = Integer.parseInt(string);
-			if(temp<0)
-				throw new NegativeValueException("negative number not allowed");
+			if(temp<0) {
+				flag = true;
+				negativeValues += temp+" ";
+			}
+			else
 			result += temp;
 		}
+		if(flag)
+			throw new NegativeValueException("value cannot be negative"+negativeValues);
 		return result;
 	}
 	
