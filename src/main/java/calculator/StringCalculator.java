@@ -3,12 +3,13 @@ package calculator;
 import exception.NegativeValueException;
 
 class StringCalculator {
-	private static final String delimiter = ",|\n";
+	private static final String delimiter = ",|\n|;";
+	private static int counter=0;
 	private boolean Empty(String string) {
 		return string.isEmpty();
 	}
 	
-	private static int sum(String input) throws NegativeValueException {
+	private int sum(String input) throws NegativeValueException {
 		String[] s1 = stringToInt(input); 
 		String negativeValues = null;
 		int result = 0;
@@ -19,11 +20,11 @@ class StringCalculator {
 				flag = true;
 				negativeValues += temp+" ";
 			}
-			else
+			else 
 			result += temp;
 		}
 		if(flag)
-			throw new NegativeValueException("value cannot be negative"+negativeValues);
+			throw new NegativeValueException("negative values not allowed"+negativeValues);
 		return result;
 	}
 	
@@ -32,7 +33,14 @@ class StringCalculator {
 		return s;
 	}
 	
+	public int getCount() {
+		System.out.println(counter);
+		return counter;
+	}
+    
+	
     public int add(String input) throws NegativeValueException {
+    	counter+=1;
     	if(Empty(input)) 
     		return 0;
     	else if(input.length()==1)
@@ -41,9 +49,4 @@ class StringCalculator {
     	return sum(input);
     }
 
-	public static Integer getCount() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-    
 }

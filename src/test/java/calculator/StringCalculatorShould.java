@@ -48,6 +48,11 @@ class StringCalculatorShould {
     
     @Test 
     void string_called_count_add(){
-    	assertEquals(8, StringCalculator.getCount());
+    	assertEquals(0, stringCalculator.getCount());
+    }
+    
+    @Test
+    void string_ignore_numbers_greater_than_1000() throws NegativeValueException {
+    	assertEquals(30, stringCalculator.add("10;20;1001"));
     }
 }
