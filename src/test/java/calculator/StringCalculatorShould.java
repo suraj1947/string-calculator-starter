@@ -30,4 +30,12 @@ class StringCalculatorShould {
     void string_with_newLine_delimiter() {
     	assertEquals(3, stringCalculator.add("1\n2"));
     }
+    
+    void string_with_diffrent_delimiters() {
+    	assertEquals(3, stringCalculator.add("//;\n1;2"));
+    }
+    @Test
+    void string_with_negative_number() {
+    	assertThrows(Exception.class,()->stringCalculator.add("-1"));
+    }
 }
