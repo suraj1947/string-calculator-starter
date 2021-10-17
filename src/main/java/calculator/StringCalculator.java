@@ -20,7 +20,8 @@ class StringCalculator {
 				flag = true;
 				negativeValues += temp+" ";
 			}
-			else 
+			else if(temp>1000)
+				continue;
 			result += temp;
 		}
 		if(flag)
