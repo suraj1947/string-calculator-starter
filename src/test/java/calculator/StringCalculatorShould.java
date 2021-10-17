@@ -20,6 +20,6 @@ class StringCalculatorShould {
     @Test
     void string_with_two_numbers_should_return_number_as_int() {
     	StringCalculator stringCalculator = new StringCalculator();
-    	assertEquals(3, stringCalculator.add("1 2"));
+    	assertEquals(3, stringCalculator.add("1,2"));
     } 
 }
