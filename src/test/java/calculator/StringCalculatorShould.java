@@ -25,4 +25,9 @@ class StringCalculatorShould {
     void string_with_three_numbers_should_return_sum_as_int() {
     	assertEquals(6, stringCalculator.add("1,2,3"));
     }
+    
+    @Test
+    void string_with_newLine_delimiter() {
+    	assertEquals(3, stringCalculator.add("1\n2"));
+    }
 }
