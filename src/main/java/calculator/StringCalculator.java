@@ -1,7 +1,7 @@
 package calculator;
 
 class StringCalculator {
-	
+	private static final String delimiter = ",|\n";
 	private boolean Empty(String string) {
 		return string.isEmpty();
 	}
@@ -16,7 +16,7 @@ class StringCalculator {
 	}
 	
 	private static String[] stringToInt(String string) {
-		String[] s = string.split(",");
+		String[] s = string.split(delimiter);
 		return s;
 	}
 	
