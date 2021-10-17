@@ -1,16 +1,21 @@
 package calculator;
 
+import exception.NegativeValueException;
+
 class StringCalculator {
 	private static final String delimiter = ",|\n";
 	private boolean Empty(String string) {
 		return string.isEmpty();
 	}
 	
-	private static int sum(String input) {
+	private static int sum(String input) throws NegativeValueException {
 		String[] s1 = stringToInt(input); 
 		int result = 0;
 		for (String string : s1) {
-			result += Integer.parseInt(string);
+			int temp = Integer.parseInt(string);
+			if(temp<0)
+				throw new NegativeValueException("negative number not allowed");
+			result += temp;
 		}
 		return result;
 	}
@@ -20,7 +25,7 @@ class StringCalculator {
 		return s;
 	}
 	
-    public int add(String input) {
+    public int add(String input) throws NegativeValueException {
     	if(Empty(input)) 
     		return 0;
     	else if(input.length()==1)
