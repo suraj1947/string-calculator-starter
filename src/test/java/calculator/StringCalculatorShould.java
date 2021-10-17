@@ -45,4 +45,9 @@ class StringCalculatorShould {
     void string_with_multiple_negative_number() {
     	assertThrows(Exception.class,()->stringCalculator.add("//;\n-1;-2;-3"));
     }
+    
+    @Test 
+    void string_called_count_add(){
+    	assertEquals(8, StringCalculator.getCount());
+    }
 }

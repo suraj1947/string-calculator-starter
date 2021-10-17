@@ -40,5 +40,10 @@ class StringCalculator {
     	//String[] s = stringToInt(input);
     	return sum(input);
     }
+
+	public static Integer getCount() {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
 }
