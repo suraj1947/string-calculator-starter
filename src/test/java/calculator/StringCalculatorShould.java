@@ -65,4 +65,8 @@ class StringCalculatorShould {
     void string_with_many_delimiters() throws NegativeValueException {
     	assertEquals(6, stringCalculator.add("//[*][%]\\n1*2%3"));
     }
+    @Test
+    void string_with_many_multiple_delimiters() throws NegativeValueException {
+    	assertEquals(6, stringCalculator.add("//[**][%%]\\n1**2%%3"));
+    }
 }
