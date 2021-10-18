@@ -38,7 +38,7 @@ class StringCalculatorShould {
     }
     @Test
     void string_with_negative_number() {
-    	assertThrows(Exception.class,()->stringCalculator.add("//;\n1;-2"));
+    	assertThrows(Exception.class,()->stringCalculator.add("//[;]\n1;-2"));
     }
     
     @Test
@@ -53,11 +53,16 @@ class StringCalculatorShould {
     
     @Test
     void string_ignore_numbers_greater_than_1000() throws NegativeValueException {
-    	assertEquals(30, stringCalculator.add("10;20;1001"));
+    	assertEquals(30, stringCalculator.add("//[;]\n10;20;1001"));
     }
     
     @Test
     void string_multiple_delimiters() throws NegativeValueException {
-    	assertEquals(30, stringCalculator.add("[***]\\n1***2***3”"));
+    	assertEquals(6, stringCalculator.add("//[***]\\n1***2***3”"));
+    }
+    
+    @Test
+    void string_with_many_delimiters() throws NegativeValueException {
+    	assertEquals(6, stringCalculator.add("//[*][%]\\n1*2%3"));
     }
 }

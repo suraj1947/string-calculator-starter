@@ -1,13 +1,19 @@
 package calculator;
 
+import java.util.StringTokenizer;
+
 import exception.NegativeValueException;
 
 class StringCalculator {
-	private static final String delimiter = ",|\n|;";
+	private static final String delimiter = "\n|;|,|%";
+	//StringTokenizer stk = new StringTokenizer(delimiter);
 	private static int counter=0;
 	private boolean Empty(String string) {
 		return string.isEmpty();
 	}
+	
+	
+
 	
 	private int sum(String input) throws NegativeValueException {
 		String[] s1 = stringToInt(input); 
@@ -29,9 +35,21 @@ class StringCalculator {
 		return result;
 	}
 	
-	private static String[] stringToInt(String string) {
-		String[] s = string.split(delimiter);
-		return s;
+	private static String[] stringToInt(String input) {
+		//String[] s = string.split(delimiter);
+		String[] values = null;
+		StringBuilder dl = new StringBuilder("\\n,");
+        StringBuilder ainput = new StringBuilder();
+        if ( input.startsWith("//") ){
+            dl.append(input, input.indexOf("//")+2, input.indexOf("\n")); // String between // and \n
+            ainput.append( input.substring(input.indexOf("\n")) );
+        }else{
+            ainput.append(input);
+        }
+        
+        values = ainput.toString().split("["+dl+"]");
+        
+		return values;
 	}
 	
 	public int getCount() {
