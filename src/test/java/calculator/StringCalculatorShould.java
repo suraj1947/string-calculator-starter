@@ -48,25 +48,29 @@ class StringCalculatorShould {
     
     @Test 
     void string_called_count_add(){
-    	assertEquals(0, stringCalculator.getCount());
+    	assertEquals(0, stringCalculator.getCalledCount());
     }
     
     @Test
     void string_ignore_numbers_greater_than_1000() throws NegativeValueException {
-    	assertEquals(30, stringCalculator.add("//[;]\n10;20;1001"));
+    	assertEquals(30, stringCalculator.add("//[,]\n10,20,1001"));
     }
     
     @Test
     void string_multiple_delimiters() throws NegativeValueException {
-    	assertEquals(6, stringCalculator.add("//[***]\\n1***2***3”"));
+    	assertEquals(6, stringCalculator.add("//[***]\n1***2***3"));
     }
     
     @Test
     void string_with_many_delimiters() throws NegativeValueException {
-    	assertEquals(6, stringCalculator.add("//[*][%]\\n1*2%3"));
+    	assertEquals(6, stringCalculator.add("//[*][%]\n1*2%3"));
     }
     @Test
     void string_with_many_multiple_delimiters() throws NegativeValueException {
-    	assertEquals(6, stringCalculator.add("//[**][%%]\\n1**2%%3"));
+    	assertEquals(6, stringCalculator.add("//[**][%%]\n1**2%%3"));
+    }
+    @Test
+    void if_input_starts_with_M() throws NegativeValueException {
+    	assertEquals(18, stringCalculator.add("M*1,2,3"));
     }
 }
